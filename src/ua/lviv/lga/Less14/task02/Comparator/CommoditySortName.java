@@ -1,4 +1,6 @@
-package ua.lviv.lga.Less14.task02;
+package ua.lviv.lga.Less14.task02.Comparator;
+
+import ua.lviv.lga.Less14.task02.Commodity;
 
 import java.util.Comparator;
 

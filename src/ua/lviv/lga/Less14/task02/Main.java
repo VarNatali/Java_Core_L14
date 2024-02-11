@@ -1,5 +1,10 @@
 package ua.lviv.lga.Less14.task02;
 
+import ua.lviv.lga.Less14.task02.Comparator.CommoditySortLength;
+import ua.lviv.lga.Less14.task02.Comparator.CommoditySortName;
+import ua.lviv.lga.Less14.task02.Comparator.CommoditySortWeight;
+import ua.lviv.lga.Less14.task02.Comparator.CommoditySortWidth;
+
 import java.util.*;
 
 public class Main {
@@ -38,21 +43,21 @@ public class Main {
             menu();
             switch (sc.next()) {
                 case "0":
-                    System.exit(0);
                     sc.close();
+                    System.exit(0);
                     break;
                 case "1":
-                    group.addCommodity(arrList);
+                    group.addCommodity(arrList, sc);
                     group.showAll(arrList);
 
                     break;
                 case "2":
-                    group.deleteCommodity(arrList);
+                    group.deleteCommodity(arrList, sc);
 
                     group.showAll(arrList);
                     break;
                 case "3":
-                    group.replaceElement(arrList);
+                    group.replaceElement(arrList, sc);
                     group.showAll(arrList);
                     break;
                 case "4":
@@ -78,11 +83,11 @@ public class Main {
                     break;
                 case "8":
 
-                    group.showElement(arrList);
+                    group.showElement(arrList, sc);
 
                     break;
                 case "9":
-                    group.showSeparate(arrList);
+                    group.showSeparate(arrList, sc);
 
                     break;
 

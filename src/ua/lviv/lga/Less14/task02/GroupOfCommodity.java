@@ -8,6 +8,9 @@ import java.util.Scanner;
 
 public class GroupOfCommodity {
 
+    String str;
+    int num = -1;
+
     public void showAll(List cmList) {
         System.out.println("Весь перелік товарів:");
         System.out.println("");
@@ -17,15 +20,12 @@ public class GroupOfCommodity {
 
     }
 
-    public void replaceElement(List cmList) {
-        Scanner sc = new Scanner(System.in);
-
+    public void replaceElement(List cmList, Scanner sc) {
         Iterator<Commodity> iterator = cmList.iterator();
-
-        String str;
+        num = -1;
         System.out.println("Введіть назву товару, який треба замінити");
         str = sc.next();
-        int num = -1;
+
 
         while (iterator.hasNext()) {
             Commodity next = iterator.next();
@@ -49,24 +49,21 @@ public class GroupOfCommodity {
         if (num < 0) System.out.println("Не знайдено такого товару.");
     }
 
-    public void addCommodity(List cmList) {
-        int num = -1;
+    public void addCommodity(List cmList, Scanner sc) {
+        num = -1;
         Iterator<Commodity> iterator = cmList.iterator();
-        String str;
-        Scanner sc2 = new Scanner(System.in);
         Commodity cm = new Commodity();
-
         System.out.println("Введіть назву товару");
-        str = sc2.next();
+        str = sc.next();
         num = isExist(iterator, str);
         if (num < 0) {
             cm.setName(str);
             System.out.println("Введіть width товару");
-            cm.setWidth(sc2.nextInt());
+            cm.setWidth(sc.nextInt());
             System.out.println("Введіть length товару");
-            cm.setLength(sc2.nextInt());
+            cm.setLength(sc.nextInt());
             System.out.println("Введіть weight товару");
-            cm.setWeight(sc2.nextInt());
+            cm.setWeight(sc.nextInt());
             cmList.add(cm);
             System.out.println("Commodity added.");
         } else {
@@ -77,9 +74,8 @@ public class GroupOfCommodity {
 
     }
 
-    public void showElement(List cmList) {
-        Scanner sc = new Scanner(System.in);
-        int num = -1;
+    public void showElement(List cmList, Scanner sc) {
+        num = -1;
         System.out.println("Введіть номер товару");
         num = sc.nextInt();
         if (num < 0 || num > cmList.size()) System.out.println("Cтільки товару немає.");
@@ -88,12 +84,9 @@ public class GroupOfCommodity {
     }
 
 
-    public void deleteCommodity(List cmList) {
-        String str;
+    public void deleteCommodity(List cmList, Scanner sc) {
         Commodity cm = new Commodity();
-
-        Scanner sc = new Scanner(System.in);
-        int num = -1;
+        num = -1;
         System.out.println("Введіть назву товару");
         str = sc.next();
 
@@ -111,12 +104,10 @@ public class GroupOfCommodity {
     }
 
 
-    public void showSeparate(List cmList) {
-        Scanner sc2 = new Scanner(System.in);
-        String str;
-        int num = -1;
+    public void showSeparate(List cmList, Scanner sc) {
+        num = -1;
         System.out.println("Введіть назву товару");
-        str = sc2.next();
+        str = sc.next();
 
         Iterator<Commodity> iterator = cmList.iterator();
 
@@ -125,12 +116,11 @@ public class GroupOfCommodity {
             Iterator<Commodity> iterator2 = cmList.iterator();
             System.out.println("Не знайдено такого товару. Спробуйте знайти за вагою.");
             System.out.println("Введіть вагу товару");
-            int wg = sc2.nextInt();
+            int wg = sc.nextInt();
 
             while (iterator2.hasNext()) {
                 Commodity next = iterator2.next();
                 if (next.getWeight() == wg) {
-
                     System.out.println(next.toString());
                     num++;
                 }
